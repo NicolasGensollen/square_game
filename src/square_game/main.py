@@ -24,9 +24,18 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            elif event.type == pygame.KEYDOWN:
+                match event.key:
+                    case pygame.K_RIGHT:
+                        pos_x += SPEED
+                    case pygame.K_LEFT:
+                        pos_x -= SPEED
+                    case pygame.K_UP:
+                        pos_y -= SPEED
+                    case pygame.K_DOWN:
+                        pos_y += SPEED
 
         surface.fill(BACKGROUND_COLOR)
-        pos_x += SPEED
         pygame.draw.rect(surface, SQUARE_COLOR, (pos_x, pos_y, SQUARE_SIZE, SQUARE_SIZE))
         
         pygame.display.flip()
