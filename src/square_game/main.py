@@ -34,6 +34,14 @@ def main():
                         pos_y -= SPEED
                     case pygame.K_DOWN:
                         pos_y += SPEED
+        if pos_x < 0:
+            pos_x = 0
+        elif pos_x > WIDTH - SQUARE_SIZE:
+            pos_x = WIDTH - SQUARE_SIZE
+        if pos_y < 0:
+            pos_y = 0
+        elif pos_y > HEIGHT - SQUARE_SIZE:
+            pos_y = HEIGHT - SQUARE_SIZE
 
         surface.fill(BACKGROUND_COLOR)
         pygame.draw.rect(surface, SQUARE_COLOR, (pos_x, pos_y, SQUARE_SIZE, SQUARE_SIZE))
