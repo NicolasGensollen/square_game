@@ -24,16 +24,17 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-            elif event.type == pygame.KEYDOWN:
-                match event.key:
-                    case pygame.K_RIGHT:
-                        pos_x += SPEED
-                    case pygame.K_LEFT:
-                        pos_x -= SPEED
-                    case pygame.K_UP:
-                        pos_y -= SPEED
-                    case pygame.K_DOWN:
-                        pos_y += SPEED
+        
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_RIGHT]:
+            pos_x += SPEED
+        if keys[pygame.K_LEFT]:
+            pos_x -= SPEED
+        if keys[pygame.K_UP]:
+            pos_y -= SPEED
+        if keys[pygame.K_DOWN]:
+            pos_y += SPEED
+
         if pos_x < 0:
             pos_x = 0
         elif pos_x > WIDTH - SQUARE_SIZE:
